@@ -1,0 +1,14 @@
+version: "1"
+
+metadata:
+  render_inline: true
+
+templates:
+  - name: golang
+    source: github.com/go-vela/template-poc/templates/golang.yml
+    format: golang
+    type: github
+  - name: starlark
+    source: github.com/go-vela/template-poc/templates/starlark.star
+    format: starlark
+    type: github

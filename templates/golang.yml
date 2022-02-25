@@ -1,0 +1,16 @@
+version: "1"
+
+metadata:
+  template: true
+
+{{- $stageList := list "foo" "bar" -}}
+
+stages:
+{{- range $stage := $stageList -}}
+  {{ $stage }}:
+    steps:
+      - name: {{ $stage }}
+        image: alpine
+        commands:
+          - echo hello from {{ $stage }}
+{{ end }}
