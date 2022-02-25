@@ -1,16 +1,15 @@
 version: "1"
 
-metadata:
-  template: true
-
-{{- $stageList := list "foo" "bar" -}}
+# The trailing dash trims any whitespace to the right of the closing }} tag. See
+# https://pkg.go.dev/text/template#hdr-Text_and_spaces
+{{$stageList := list "foo" "bar" "star" -}}
 
 stages:
-{{- range $stage := $stageList -}}
+  {{range $stage := $stageList -}}
   {{ $stage }}:
     steps:
       - name: {{ $stage }}
         image: alpine
         commands:
           - echo hello from {{ $stage }}
-{{ end }}
+  {{ end }}
